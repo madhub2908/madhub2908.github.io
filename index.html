@@ -74,7 +74,7 @@ Designing scalable cloud-native data platforms and analytics ecosystems that ena
 informed decision-making at enterprise scale.
 </p>
 
-<a href="#" class="button">Download CV</a>
+<button class="button" onclick="openForm()">Get Full CV (PDF)</button>
 <a href="mailto:madhub2908@gmail.com" class="button">Contact</a>
 
 <h2>About</h2>
@@ -121,6 +121,71 @@ Professional Scrum Master
 </div>
 
 </div>
+<!-- CV Lead Capture Modal -->
+<div id="formModal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.85); backdrop-filter:blur(6px); z-index:9999;">
+  <div style="background:white; max-width:440px; margin:8vh auto; padding:32px; border-radius:14px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.25);">
+
+    <h3 style="margin:0 0 10px 0;">Access Full CV</h3>
+    <p style="margin:0 0 18px 0; font-size:14px; color:#6b7280;">
+      Please share your details to download the complete CV.
+    </p>
+
+    <form id="leadForm" action="https://formspree.io/f/meelpeqp" method="POST">
+
+      <input type="text" name="name" placeholder="Full Name" required
+        style="width:100%; padding:12px; margin-bottom:12px; border:1px solid #e5e7eb; border-radius:8px;">
+
+      <input type="email" name="email" placeholder="Email Address" required
+        style="width:100%; padding:12px; margin-bottom:12px; border:1px solid #e5e7eb; border-radius:8px;">
+
+      <input type="text" name="company" placeholder="Organisation (optional)"
+        style="width:100%; padding:12px; margin-bottom:14px; border:1px solid #e5e7eb; border-radius:8px;">
+
+      <button type="submit" class="button" style="width:100%;">
+        Submit & Download
+      </button>
+
+    </form>
+
+    <p style="margin-top:14px; font-size:12px; color:#9ca3af;">
+      Your information will not be shared.
+    </p>
+
+    <button onclick="closeForm()"
+      style="position:absolute; top:12px; right:14px; border:none; background:none; font-size:22px; cursor:pointer;">
+      ×
+    </button>
+
+  </div>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("formModal").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("formModal").style.display = "none";
+}
+
+document.getElementById("leadForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  fetch(this.action, {
+    method: "POST",
+    body: new FormData(this),
+    headers: { "Accept": "application/json" }
+  }).then(response => {
+    if (response.ok) {
+      window.location.href = "Madhu_Data_CV.pdf";
+    } else {
+      alert("Submission failed. Please try again.");
+    }
+  }).catch(() => {
+    alert("Network error. Please try again.");
+  });
+});
+</script>
 
 </body>
 </html>
