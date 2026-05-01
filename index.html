@@ -1,307 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Madhusudan Bhaskar | Enterprise Data & Analytics Leader</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Madhusudan Bhaskar — Data Platform Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet" />
 <style>
+   /* ── RESET & TOKENS ─────────────────────────────────────── */
+   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+```
+:root {
+ --indigo:       #4F46E5;
+ --indigo-dark:  #3730A3;
+ --indigo-deep:  #1e1b6e;
+ --indigo-light: #EEF2FF;
+ --indigo-mid:   #818CF8;
+ --charcoal:     #1E1E2E;
+ --grey:         #6B7280;
+ --grey-light:   #F3F4F6;
+ --white:        #FFFFFF;
+ --serif:        'DM Serif Display', Georgia, serif;
+ --sans:         'DM Sans', system-ui, sans-serif;
+ --mono:         'DM Mono', monospace;
+}
+html { scroll-behavior: smooth; }
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
-    line-height: 1.7;
+ font-family: var(--sans);
+ background: var(--white);
+ color: var(--charcoal);
+ line-height: 1.6;
+ overflow-x: hidden;
 }
-
-/* Layout */
+/* ── NAV ────────────────────────────────────────────────── */
+nav {
+ position: fixed;
+ top: 0; left: 0; right: 0;
+ z-index: 100;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 1.2rem 4rem;
+ background: rgba(255,255,255,0.92);
+ backdrop-filter: blur(12px);
+ border-bottom: 1px solid rgba(79,70,229,0.12);
+}
+.nav-logo {
+ font-family: var(--serif);
+ font-size: 1.1rem;
+ color: var(--indigo-dark);
+ text-decoration: none;
+ letter-spacing: 0.01em;
+}
+.nav-links {
+ display: flex;
+ gap: 2.5rem;
+ list-style: none;
+ align-items: center;
+}
+.nav-links a {
+ font-size: 0.85rem;
+ font-weight: 500;
+ color: var(--grey);
+ text-decoration: none;
+ letter-spacing: 0.06em;
+ text-transform: uppercase;
+ transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--indigo); }
+.nav-cta {
+ background: var(--indigo) !important;
+ color: var(--white) !important;
+ padding: 0.5rem 1.2rem !important;
+ border-radius: 4px;
+ font-weight: 600 !important;
+ transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--indigo-dark) !important; }
+/* ── HERO ───────────────────────────────────────────────── */
+.hero {
+ min-height: 100vh;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ position: relative;
+ overflow: hidden;
+}
+.hero-left {
+ background: var(--indigo-deep);
+ padding: 10rem 5rem 6rem 6rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ position: relative;
+}
+/* decorative grid lines */
+.hero-left::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background-image:
+   linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+   linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+ background-size: 48px 48px;
+}
+.hero-eyebrow {
+ font-family: var(--mono);
+ font-size: 0.75rem;
+ color: var(--indigo-mid);
+ letter-spacing: 0.15em;
+ text-transform: uppercase;
+ margin-bottom: 1.5rem;
+ position: relative;
+}
+.hero-name {
+ font-family: var(--serif);
+ font-size: clamp(2.8rem, 4vw, 4.2rem);
+ color: var(--white);
+ line-height: 1.1;
+ position: relative;
+ margin-bottom: 1.2rem;
+}
+.hero-name em {
+ font-style: italic;
+ color: var(--indigo-mid);
+}
+.hero-tagline {
+ font-size: 1.05rem;
+ color: rgba(255,255,255,0.65);
+ max-width: 400px;
+ line-height: 1.7;
+ position: relative;
+ margin-bottom: 2.5rem;
+}
+.hero-actions {
+ display: flex;
+ gap: 1rem;
+ flex-wrap: wrap;
+ position: relative;
+}
+.btn-primary {
+ display: inline-block;
+ background: var(--indigo);
+ color: var(--white);
+ padding: 0.8rem 1.8rem;
+ border-radius: 4px;
+ text-decoration: none;
+ font-weight: 600;
+ font-size: 0.9rem;
+ letter-spacing: 0.02em;
+ transition: background 0.2s, transform 0.2s;
+ border: none;
+ cursor: pointer;
+}
+.btn-primary:hover {
+ background: var(--indigo-dark);
+ transform: translateY(-1px);
+}
+.btn-ghost {
+ display: inline-block;
+ background: transparent;
+ color: rgba(255,255,255,0.7);
+ padding: 0.8rem 1.8rem;
+ border-radius: 4px;
+ text-decoration: none;
+ font-weight: 500;
+ font-size: 0.9rem;
+ border: 1px solid rgba(255,255,255,0.2);
+ transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover {
+ border-color: rgba(255,255,255,0.5);
+ color: var(--white);
+}
+.hero-right {
+ background: var(--indigo-light);
+ padding: 10rem 5rem 6rem 5rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ gap: 2rem;
+ position: relative;
+}
+/* decorative large number */
+.hero-right::before {
+ content: '15';
+ position: absolute;
+ top: 5rem;
+ right: 3rem;
+ font-family: var(--serif);
+ font-size: 12rem;
+ color: rgba(79,70,229,0.06);
+ line-height: 1;
+ pointer-events: none;
+}
+.stat-card {
+ background: var(--white);
+ border-left: 3px solid var(--indigo);
+ padding: 1.4rem 1.8rem;
+ border-radius: 0 6px 6px 0;
+ box-shadow: 0 2px 12px rgba(79,70,229,0.08);
+}
+.stat-number {
+ font-family: var(--serif);
+ font-size: 2.2rem;
+ color: var(--indigo-dark);
+ line-height: 1;
+ margin-bottom: 0.3rem;
+}
+.stat-label {
+ font-size: 0.8rem;
+ font-weight: 600;
+ color: var(--indigo);
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ margin-bottom: 0.4rem;
+}
+.stat-desc {
+ font-size: 0.88rem;
+ color: var(--grey);
+ line-height: 1.5;
+}
+/* ── SECTION COMMON ─────────────────────────────────────── */
+section { padding: 6rem 0; }
 .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 80px 20px;
+ max-width: 1100px;
+ margin: 0 auto;
+ padding: 0 3rem;
 }
-
-/* Headings */
-h1 {
-    font-size: 46px;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
+.section-label {
+ font-family: var(--mono);
+ font-size: 0.72rem;
+ color: var(--indigo);
+ letter-spacing: 0.15em;
+ text-transform: uppercase;
+ margin-bottom: 0.8rem;
 }
-
-h2 {
-    margin-top: 80px;
-    font-size: 28px;
-    color: #5eead4;
-    letter-spacing: 0.5px;
+.section-title {
+ font-family: var(--serif);
+ font-size: clamp(2rem, 3vw, 2.8rem);
+ color: var(--indigo-dark);
+ line-height: 1.15;
+ margin-bottom: 1.5rem;
 }
-
-.subtitle {
-    font-size: 20px;
-    color: #94a3b8;
-    margin-bottom: 25px;
+.section-title em {
+ font-style: italic;
+ color: var(--indigo);
 }
-
-/* Buttons */
-.button {
-    display: inline-block;
-    padding: 12px 26px;
-    min-width: 180px;
-    text-align: center;
-    background: linear-gradient(135deg, #14b8a6, #0ea5e9);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-right: 12px;
-    margin-top: 20px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* ── ABOUT ──────────────────────────────────────────────── */
+.about { background: var(--white); }
+.about-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 5rem;
+ align-items: start;
 }
-
-.button-group {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+.about-text p {
+ font-size: 1.05rem;
+ color: var(--charcoal);
+ line-height: 1.8;
+ margin-bottom: 1.2rem;
 }
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 48px;
-    min-width: 200px;
-    padding: 0 24px;
-    font-size: 15px;
+.about-text p:last-child { margin-bottom: 0; }
+.about-skills h3 {
+ font-family: var(--serif);
+ font-size: 1.3rem;
+ color: var(--indigo-dark);
+ margin-bottom: 1.2rem;
 }
-
-
-.button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(20,184,166,0.4);
+.skill-group {
+ margin-bottom: 1.2rem;
+ padding-bottom: 1.2rem;
+ border-bottom: 1px solid var(--grey-light);
 }
-
-/* Grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-    margin-top: 30px;
+.skill-group:last-child {
+ border-bottom: none;
+ margin-bottom: 0;
+ padding-bottom: 0;
 }
-
-.card {
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 12px;
-    transition: 0.3s ease;
-    border: 1px solid #334155;
+.skill-group-label {
+ font-size: 0.75rem;
+ font-weight: 600;
+ color: var(--indigo);
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ margin-bottom: 0.4rem;
 }
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: #14b8a6;
+.skill-group-items {
+ font-size: 0.92rem;
+ color: var(--charcoal);
 }
-
-/* Section spacing */
-p {
-    color: #cbd5e1;
+/* ── EXPERIENCE ─────────────────────────────────────────── */
+.experience { background: var(--grey-light); }
+.exp-item {
+ display: grid;
+ grid-template-columns: 220px 1fr;
+ gap: 3rem;
+ padding: 3rem 0;
+ border-bottom: 1px solid rgba(79,70,229,0.1);
 }
-
-/* Footer */
-.footer {
-    text-align: center;
-    margin-top: 100px;
-    padding: 40px 0;
-    font-size: 14px;
-    color: #64748b;
-    border-top: 1px solid #1e293b;
+.exp-item:last-child { border-bottom: none; }
+.exp-meta { padding-top: 0.2rem; }
+.exp-dates {
+ font-family: var(--mono);
+ font-size: 0.78rem;
+ color: var(--indigo);
+ letter-spacing: 0.06em;
+ margin-bottom: 0.6rem;
 }
-
-/* Social links */
-.social-links {
-    margin-top: 20px;
+.exp-company {
+ font-weight: 600;
+ color: var(--charcoal);
+ font-size: 0.95rem;
+ margin-bottom: 0.3rem;
 }
-
-.linkedin-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: #1e293b;
-    transition: 0.3s ease;
+.exp-tag {
+ display: inline-block;
+ background: var(--indigo-light);
+ color: var(--indigo-dark);
+ font-size: 0.7rem;
+ font-weight: 600;
+ padding: 0.2rem 0.6rem;
+ border-radius: 3px;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
 }
-
-.linkedin-icon:hover {
-    background: #14b8a6;
+.exp-title {
+ font-family: var(--serif);
+ font-size: 1.4rem;
+ color: var(--indigo-dark);
+ margin-bottom: 0.6rem;
+ line-height: 1.2;
 }
-
-
+.exp-intro {
+ font-size: 0.95rem;
+ color: var(--grey);
+ font-style: italic;
+ margin-bottom: 1rem;
+ line-height: 1.6;
+}
+.exp-bullets {
+ list-style: none;
+ display: flex;
+ flex-direction: column;
+ gap: 0.55rem;
+}
+.exp-bullets li {
+ font-size: 0.93rem;
+ color: var(--charcoal);
+ line-height: 1.6;
+ padding-left: 1.2rem;
+ position: relative;
+}
+.exp-bullets li::before {
+ content: '▸';
+ position: absolute;
+ left: 0;
+ color: var(--indigo);
+ font-size: 0.75rem;
+ top: 0.22rem;
+}
+/* ── THINKING / POSTS ───────────────────────────────────── */
+.thinking { background: var(--white); }
+.posts-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 2rem;
+ margin-top: 3rem;
+}
+.post-card {
+ border: 1px solid rgba(79,70,229,0.15);
+ border-radius: 8px;
+ padding: 2rem;
+ text-decoration: none;
+ transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+ display: block;
+}
+.post-card:hover {
+ border-color: var(--indigo);
+ box-shadow: 0 8px 32px rgba(79,70,229,0.12);
+ transform: translateY(-2px);
+}
+.post-tag {
+ font-family: var(--mono);
+ font-size: 0.7rem;
+ color: var(--indigo);
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ margin-bottom: 0.8rem;
+}
+.post-title {
+ font-family: var(--serif);
+ font-size: 1.25rem;
+ color: var(--indigo-dark);
+ line-height: 1.3;
+ margin-bottom: 0.8rem;
+}
+.post-excerpt {
+ font-size: 0.9rem;
+ color: var(--grey);
+ line-height: 1.6;
+ margin-bottom: 1.2rem;
+}
+.post-link {
+ font-size: 0.82rem;
+ font-weight: 600;
+ color: var(--indigo);
+ letter-spacing: 0.04em;
+}
+/* ── CREDENTIALS ────────────────────────────────────────── */
+.credentials { background: var(--indigo-deep); }
+.credentials .section-label { color: var(--indigo-mid); }
+.credentials .section-title { color: var(--white); }
+.credentials .section-title em { color: var(--indigo-mid); }
+.creds-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ gap: 1.5rem;
+ margin-top: 3rem;
+}
+.cred-item {
+ background: rgba(255,255,255,0.05);
+ border: 1px solid rgba(255,255,255,0.08);
+ border-radius: 6px;
+ padding: 1.4rem 1.6rem;
+ transition: background 0.2s;
+}
+.cred-item:hover { background: rgba(255,255,255,0.08); }
+.cred-icon {
+ font-size: 1.2rem;
+ margin-bottom: 0.6rem;
+}
+.cred-name {
+ font-size: 0.9rem;
+ font-weight: 500;
+ color: var(--white);
+ line-height: 1.4;
+ margin-bottom: 0.3rem;
+}
+.cred-issuer {
+ font-size: 0.75rem;
+ color: var(--indigo-mid);
+ font-family: var(--mono);
+}
+/* ── CV DOWNLOADS ───────────────────────────────────────── */
+.downloads { background: var(--indigo-light); }
+.downloads-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 2rem;
+ margin-top: 3rem;
+}
+.download-card {
+ background: var(--white);
+ border-radius: 8px;
+ padding: 2.5rem;
+ border-top: 4px solid var(--indigo);
+ box-shadow: 0 4px 24px rgba(79,70,229,0.08);
+}
+.download-card h3 {
+ font-family: var(--serif);
+ font-size: 1.3rem;
+ color: var(--indigo-dark);
+ margin-bottom: 0.6rem;
+}
+.download-card p {
+ font-size: 0.9rem;
+ color: var(--grey);
+ line-height: 1.6;
+ margin-bottom: 1.5rem;
+}
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer {
+ background: var(--charcoal);
+ padding: 3rem 0;
+}
+.footer-inner {
+ max-width: 1100px;
+ margin: 0 auto;
+ padding: 0 3rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 1.5rem;
+}
+.footer-name {
+ font-family: var(--serif);
+ font-size: 1.1rem;
+ color: var(--white);
+}
+.footer-tagline {
+ font-size: 0.82rem;
+ color: rgba(255,255,255,0.4);
+ margin-top: 0.2rem;
+}
+.footer-links {
+ display: flex;
+ gap: 1.5rem;
+ align-items: center;
+}
+.footer-links a {
+ font-size: 0.85rem;
+ color: rgba(255,255,255,0.5);
+ text-decoration: none;
+ transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--indigo-mid); }
+/* ── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeUp {
+ from { opacity: 0; transform: translateY(24px); }
+ to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { animation: fadeUp 0.6s ease both; }
+.hero-name    { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-tagline { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+.stat-card:nth-child(1) { animation: fadeUp 0.6s 0.2s ease both; }
+.stat-card:nth-child(2) { animation: fadeUp 0.6s 0.35s ease both; }
+.stat-card:nth-child(3) { animation: fadeUp 0.6s 0.5s ease both; }
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+ nav { padding: 1rem 2rem; }
+ .nav-links { gap: 1.5rem; }
+ .hero { grid-template-columns: 1fr; }
+ .hero-left { padding: 8rem 2.5rem 4rem; }
+ .hero-right { padding: 3rem 2.5rem 5rem; }
+ .hero-right::before { display: none; }
+ .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+ .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+ .posts-grid { grid-template-columns: 1fr; }
+ .creds-grid { grid-template-columns: 1fr 1fr; }
+ .downloads-grid { grid-template-columns: 1fr; }
+ .container { padding: 0 1.5rem; }
+}
+@media (max-width: 600px) {
+ .nav-links { display: none; }
+ .creds-grid { grid-template-columns: 1fr; }
+}
+```
 </style>
 </head>
 <body>
-
+<!-- NAV -->
+<nav>
+<a href="#" class="nav-logo">Madhusudan Bhaskar</a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#thinking">Thinking</a></li>
+<li><a href="#downloads" class="nav-cta">Download CV</a></li>
+</ul>
+</nav>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-left">
+<p class="hero-eyebrow">// Sydney, Australia · Data Platform Leadership</p>
+<h1 class="hero-name">Madhusudan<br><em>Bhaskar</em></h1>
+<p class="hero-tagline">
+       I help organisations build data foundations that actually get used —
+       modern platforms, clear ownership, and the enablement that makes adoption stick.
+</p>
+<div class="hero-actions">
+<a href="#experience" class="btn-primary">View My Work</a>
+<a href="https://www.linkedin.com/in/madhusudan-bhaskar-39591724/" target="_blank" class="btn-ghost">Connect on LinkedIn</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="stat-card">
+<div class="stat-number">$30M+</div>
+<div class="stat-label">Platform Program</div>
+<div class="stat-desc">Shaping cloud-native data platform strategy at CBA — designed to enable data science, ML, and self-serve analytics at enterprise scale</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">15 yrs</div>
+<div class="stat-label">Financial Services</div>
+<div class="stat-desc">End-to-end platform delivery across CBA, Macquarie, and KPMG — from architecture and governance through to product definition and business enablement</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">100</div>
+<div class="stat-label">Critical Data Elements</div>
+<div class="stat-desc">Led the enterprise CDE program at Macquarie — governing the organisation's most critical data assets with clear ownership and quality standards</div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section class="about" id="about">
 <div class="container">
-
-<h1>Madhusudan Bhaskar</h1>
-<div class="subtitle">Enterprise Data & Analytics Leader</div>
-
-<div class="social-links">
-  <a href="https://www.linkedin.com/in/madhusudan-bhaskar-39591724/" target="_blank" class="linkedin-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#5eead4" viewBox="0 0 24 24">
-      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 
-      2.761 2.239 5 5 5h14c2.761 0 5-2.239 
-      5-5v-14c0-2.761-2.239-5-5-5zm-11 
-      19h-3v-10h3v10zm-1.5-11.268c-.966 
-      0-1.75-.784-1.75-1.75s.784-1.75 
-      1.75-1.75 1.75.784 1.75 1.75-.784 
-      1.75-1.75 1.75zm13.5 
-      11.268h-3v-5.604c0-3.368-4-3.113-4 
-      0v5.604h-3v-10h3v1.604c1.396-2.586 
-      7-2.777 7 2.476v5.92z"/>
-    </svg>
-  </a>
-</div>
-
-
+<div class="about-grid">
+<div class="about-text">
+<p class="section-label">// About</p>
+<h2 class="section-title">Platform thinker.<br><em>Technical depth.</em></h2>
 <p>
-Designing scalable cloud-native data platforms and analytics ecosystems that enable
-informed decision-making at enterprise scale.
+           I'm a data platform leader with 15+ years building the data foundations that organisations depend on to make decisions, manage risk, and scale their capabilities.
 </p>
-
-<div class="button-group">
-  <button class="button" onclick="openForm()">Get Full CV (PDF)</button>
-  <a href="mailto:madhub2908@gmail.com" class="button">Contact</a>
-</div>
-
-<h2>About</h2>
 <p>
-Senior data and analytics leader with 15+ years of experience designing and delivering enterprise data platforms across complex organisations.
-Specialising in cloud-native architectures, reusable data products, and analytics enablement that supports strategic and operational decisions.
+           My background spans the full platform stack — ingestion, transformation, orchestration, governance, and analytics — and I've spent the last several years operating at the intersection of platform architecture and product thinking.
 </p>
-
-<h2>Core Expertise</h2>
-<div class="grid">
-<div class="card">Enterprise Data Architecture</div>
-<div class="card">Cloud-Native Platforms (AWS, Azure)</div>
-<div class="card">Data Product Strategy</div>
-<div class="card">Analytics Enablement</div>
-<div class="card">Platform Modernisation</div>
-<div class="card">Governance & Metadata Frameworks</div>
-</div>
-
-<h2>Career Impact</h2>
-<div class="grid">
-  <div class="card">
-    <strong>$30M+ Platform Modernisation</strong>
-    <p>Contributing to enterprise-scale cloud-native data transformation initiatives.</p>
-  </div>
-
-  <div class="card">
-    <strong>Enterprise Architecture Leadership</strong>
-    <p>Defining scalable design principles for reusable, governed data ecosystems.</p>
-  </div>
-
-  <div class="card">
-    <strong>Cloud & Modern Stack Adoption</strong>
-    <p>Evaluating and implementing Snowflake, AWS-native, Iceberg and transformation frameworks.</p>
-  </div>
-</div>
-
-<h2>Selected Experience</h2>
-<p><strong>Senior Manager – Enterprise Data Platforms</strong><br>
-Commonwealth Bank of Australia | 2025 – Present</p>
-
-<p><strong>Senior Manager – Data & Solution Architecture</strong><br>
-Macquarie Group | 2022 – 2025</p>
-
-<p><strong>Manager – Data & Analytics Consulting</strong><br>
-KPMG | 2017 – 2020</p>
-
-<h2>Technology Stack</h2>
 <p>
-AWS • Azure • Snowflake • Redshift • Spark • Glue • Kafka • SQL • Python • Power BI • Tableau
+           At Commonwealth Bank I'm shaping platform strategy within a large-scale modernisation program — moving from legacy infrastructure to a modern cloud-native stack specifically to unlock data science and self-serve analytics. At Macquarie I owned end-to-end delivery of reusable data platforms across credit risk, market data, and compliance functions.
 </p>
-
-<h2>Certifications</h2>
 <p>
-AWS Certified Data Analytics – Specialty<br>
-AWS Certified Solutions Architect<br>
-TOGAF Certified Enterprise Architect<br>
-Professional Scrum Master
+           I think about data platforms the way product leaders think about products — with users, adoption, and outcomes at the centre, not just architecture and infrastructure.
 </p>
-
-<div class="footer">
-© 2026 Madhusudan Bhaskar
 </div>
-
+<div class="about-skills">
+<h3>Platform & Technical Fluency</h3>
+<div class="skill-group">
+<div class="skill-group-label">Cloud Platforms</div>
+<div class="skill-group-items">Snowflake · AWS · Databricks · Redshift · Iceberg · Azure</div>
 </div>
-<!-- CV Lead Capture Modal -->
-<div id="formModal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.85); backdrop-filter:blur(6px); z-index:9999;">
-  <div style="background:white; max-width:440px; margin:8vh auto; padding:32px; border-radius:14px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.25);">
-
-    <h3 style="margin:0 0 10px 0;">Access Full CV</h3>
-    <p style="margin:0 0 18px 0; font-size:14px; color:#6b7280;">
-      Please share your details to download the complete CV.
-    </p>
-
-    <form id="leadForm" action="https://formspree.io/f/meelpeqp" method="POST">
-
-      <input type="text" name="name" placeholder="Full Name" required
-        style="width:100%; padding:12px; margin-bottom:12px; border:1px solid #e5e7eb; border-radius:8px;">
-
-      <input type="email" name="email" placeholder="Email Address" required
-        style="width:100%; padding:12px; margin-bottom:12px; border:1px solid #e5e7eb; border-radius:8px;">
-
-      <input type="text" name="company" placeholder="Organisation (optional)"
-        style="width:100%; padding:12px; margin-bottom:14px; border:1px solid #e5e7eb; border-radius:8px;">
-
-      <button type="submit" class="button" style="width:100%;">
-        Submit & Download
-      </button>
-
-    </form>
-
-    <p style="margin-top:14px; font-size:12px; color:#9ca3af;">
-      Your information will not be shared.
-    </p>
-
-    <button onclick="closeForm()"
-      style="position:absolute; top:12px; right:14px; border:none; background:none; font-size:22px; cursor:pointer;">
-      ×
-    </button>
-
-  </div>
+<div class="skill-group">
+<div class="skill-group-label">Data Processing</div>
+<div class="skill-group-items">dbt · Spark · Kafka · Airflow · Glue</div>
 </div>
-
-<script>
-function openForm() {
-  document.getElementById("formModal").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("formModal").style.display = "none";
-}
-
-document.getElementById("leadForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  fetch(this.action, {
-    method: "POST",
-    body: new FormData(this),
-    headers: { "Accept": "application/json" }
-  }).then(response => {
-    if (response.ok) {
-      window.location.href = "Madhu_Data_CV.pdf";
-    } else {
-      alert("Submission failed. Please try again.");
-    }
-  }).catch(() => {
-    alert("Network error. Please try again.");
-  });
-});
-</script>
-
+<div class="skill-group">
+<div class="skill-group-label">Analytics & BI</div>
+<div class="skill-group-items">Power BI · Tableau · Semantic Layer design</div>
+</div>
+<div class="skill-group">
+<div class="skill-group-label">Languages</div>
+<div class="skill-group-items">SQL · Python</div>
+</div>
+<div class="skill-group">
+<div class="skill-group-label">Governance</div>
+<div class="skill-group-items">Metadata models · Data lineage · Access controls · Data contracts</div>
+</div>
+<div class="skill-group">
+<div class="skill-group-label">Product & Delivery</div>
+<div class="skill-group-items">Platform roadmaps · Operating model design · Stakeholder alignment · Agile</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+<div class="container">
+<p class="section-label">// Experience</p>
+<h2 class="section-title">Where I've <em>done the work</em></h2>
+```
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-dates">Mar 2025 — Present</div>
+<div class="exp-company">Commonwealth Bank</div>
+<span class="exp-tag">Current</span>
+</div>
+<div class="exp-content">
+<div class="exp-title">Senior Manager — Enterprise Data Platforms</div>
+<div class="exp-intro">Platform strategy and product leadership within a $30M+ data modernisation program, with an explicit mandate to enable data science, ML, and self-serve analytics at enterprise scale.</div>
+<ul class="exp-bullets">
+<li>Shaped the multi-year platform roadmap across ingestion, transformation and consumption layers — balancing engineering investment, team readiness, and data science demand</li>
+<li>Led evaluation and selection of modern cloud-native stack (Snowflake, Iceberg, dbt) to replace legacy Teradata — chosen specifically to unlock self-serve and ML consumption patterns</li>
+<li>Co-defined what a data product means for the organisation — designing the operating model that governs how products are built, owned, published, and consumed</li>
+<li>Ran enablement programs helping business units adopt the data product model — translating platform capabilities into practical frameworks for non-technical stakeholders</li>
+<li>Represented platform strategy at enterprise design authority forums, ensuring alignment to governance standards and long-term direction</li>
+</ul>
+</div>
+</div>
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-dates">Nov 2022 — Mar 2025</div>
+<div class="exp-company">Macquarie Group</div>
+<span class="exp-tag">Corporate Ops</span>
+</div>
+<div class="exp-content">
+<div class="exp-title">Senior Manager — Data & Solution Architect</div>
+<div class="exp-intro">End-to-end ownership of data platform products supporting risk analytics, regulatory reporting, and compliance across multiple business divisions.</div>
+<ul class="exp-bullets">
+<li>Conceived and delivered 'Data Junction' — a reusable internal data platform integrating batch (Spark) and streaming (Kafka) pipelines for credit risk, from problem definition to production</li>
+<li>Owned the platform roadmap for market data consolidation — rationalising multiple vendor feeds into a single governed, trusted source for analytics and risk teams</li>
+<li>Led vendor selection and delivery of a Model Risk Management platform, balancing build-vs-buy trade-offs against regulatory timelines</li>
+<li>Acted as voting member of the divisional architecture forum — shaping platform decisions across the group</li>
+</ul>
+</div>
+</div>
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-dates">Mar 2020 — Nov 2022</div>
+<div class="exp-company">Macquarie Group</div>
+<span class="exp-tag">Risk Mgmt Group</span>
+</div>
+<div class="exp-content">
+<div class="exp-title">Senior Manager — Non-Financial Risk Data & Analytics</div>
+<div class="exp-intro">Led the data function as 2IC to the Head of NFR Data, responsible for global reporting platforms, data quality, and enterprise data governance.</div>
+<ul class="exp-bullets">
+<li>Built the global NFR reporting platform from the ground up — consolidating data across jurisdictions for executive and board-level stakeholders</li>
+<li>Led the enterprise Critical Data Elements program — governing the 100 most critical data assets with clear ownership and quality standards</li>
+<li>Designed a legal entity data platform resolving a fragmented ownership landscape across divisions</li>
+<li>Improved data quality and lineage visibility — materially reducing reporting errors and strengthening confidence in data outputs</li>
+</ul>
+</div>
+</div>
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-dates">Mar 2017 — Mar 2020</div>
+<div class="exp-company">KPMG Australia</div>
+<span class="exp-tag">Consulting</span>
+</div>
+<div class="exp-content">
+<div class="exp-title">Manager — Data & Analytics Consulting</div>
+<div class="exp-intro">Data platform strategy and analytics uplift across banking, insurance, telco, and government clients.</div>
+<ul class="exp-bullets">
+<li>Led a platform assessment for a major insurer identifying $10M+ in optimisation opportunities</li>
+<li>Redesigned operational metrics for a major Australian telco — reducing issue resolution time by 18%</li>
+<li>Delivered end-to-end reporting platform for a government agency, collapsing reporting cycle from two days to same-day</li>
+</ul>
+</div>
+</div>
+</div>
+```
+</section>
+<!-- THINKING -->
+<section class="thinking" id="thinking">
+<div class="container">
+<p class="section-label">// Thinking</p>
+<h2 class="section-title">Ideas worth <em>sharing</em></h2>
+<div class="posts-grid">
+<a href="https://www.linkedin.com/in/madhusudan-bhaskar-39591724/" target="_blank" class="post-card">
+<div class="post-tag">Data Products · Platform</div>
+<div class="post-title">The hardest part of building a data product isn't the technology</div>
+<div class="post-excerpt">Had a conversation recently with a business team about defining their first data product. The hardest part wasn't the architecture — it was agreeing on what the data product actually is.</div>
+<div class="post-link">Read on LinkedIn →</div>
+</a>
+<a href="https://www.linkedin.com/in/madhusudan-bhaskar-39591724/" target="_blank" class="post-card">
+<div class="post-tag">AI · Data Foundations</div>
+<div class="post-title">Sustainable AI capability begins with trusted data</div>
+<div class="post-excerpt">The organisations making real progress with AI aren't the ones who jumped straight to models. They're the ones who spent time getting their data foundations right first.</div>
+<div class="post-link">Read on LinkedIn →</div>
+</a>
+</div>
+</div>
+</section>
+<!-- CREDENTIALS -->
+<section class="credentials" id="credentials">
+<div class="container">
+<p class="section-label">// Credentials</p>
+<h2 class="section-title">Certifications &<br><em>Education</em></h2>
+<div class="creds-grid">
+<div class="cred-item">
+<div class="cred-icon">☁️</div>
+<div class="cred-name">AWS Certified Data Analytics — Specialty</div>
+<div class="cred-issuer">Amazon Web Services</div>
+</div>
+<div class="cred-item">
+<div class="cred-icon">☁️</div>
+<div class="cred-name">AWS Certified Solutions Architect — Associate</div>
+<div class="cred-issuer">Amazon Web Services</div>
+</div>
+<div class="cred-item">
+<div class="cred-icon">☁️</div>
+<div class="cred-name">AWS Certified Cloud Practitioner</div>
+<div class="cred-issuer">Amazon Web Services</div>
+</div>
+<div class="cred-item">
+<div class="cred-icon">🏛️</div>
+<div class="cred-name">TOGAF Certified Enterprise Architect</div>
+<div class="cred-issuer">The Open Group</div>
+</div>
+<div class="cred-item">
+<div class="cred-icon">⚡</div>
+<div class="cred-name">Professional Scrum Master I</div>
+<div class="cred-issuer">Scrum.org</div>
+</div>
+<div class="cred-item">
+<div class="cred-icon">📊</div>
+<div class="cred-name">MCSA — BI Reporting</div>
+<div class="cred-issuer">Microsoft</div>
+</div>
+</div>
+<div style="margin-top: 2.5rem; padding: 1.5rem 2rem; background: rgba(255,255,255,0.05); border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+<div style="font-size: 0.75rem; color: var(--indigo-mid); font-family: var(--mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem;">Education</div>
+<div style="font-size: 1rem; color: var(--white); font-weight: 500;">Bachelor of Engineering — Electronics & Communication</div>
+<div style="font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem;">JSS Academy of Technical Education · 2005–2009</div>
+</div>
+</div>
+</section>
+<!-- CV DOWNLOADS -->
+<section class="downloads" id="downloads">
+<div class="container">
+<p class="section-label">// CV Downloads</p>
+<h2 class="section-title">Download my <em>CV</em></h2>
+<div class="downloads-grid">
+<div class="download-card">
+<h3>Enterprise & Architecture</h3>
+<p>Best for Head of Data, Enterprise Architect, and senior data platform leadership roles in financial services and regulated industries.</p>
+<a href="Madhu_CV_Updated.pdf" class="btn-primary" download>Download PDF →</a>
+</div>
+<div class="download-card">
+<h3>Platform Product & Strategy</h3>
+<p>Best for Data Platform Product, Data Strategy, and product-led platform leadership roles in technology and growth companies.</p>
+<a href="Madhu_CV_Canva_v2.pdf" class="btn-primary" download>Download PDF →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div>
+<div class="footer-name">Madhusudan Bhaskar</div>
+<div class="footer-tagline">Open to senior data platform and architecture leadership conversations · Sydney, NSW</div>
+</div>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/madhusudan-bhaskar-39591724/" target="_blank">LinkedIn</a>
+<a href="mailto:madhub2908@gmail.com">Email</a>
+<a href="#downloads">Download CV</a>
+</div>
+</div>
+</footer>
 </body>
 </html>
